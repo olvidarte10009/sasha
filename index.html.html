@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Studio</title>
+
+    <!-- Тонкий премиальный шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0a0a;
+            font-family: "Poppins", sans-serif;
+            color: white;
+        }
+
+        /* ====== ПРЕЛОАДЕР ====== */
+        #preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            z-index: 999;
+            transition: opacity 1s ease;
+        }
+
+        #preloader.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* ====== Анимация картинки ====== */
+        .logo-img {
+            width: 160px;
+            height: 130px;margin-top:-40px;
+            opacity: 0;
+            animation: imgPop 1.9s ease-out forwards;
+        }
+
+        @keyframes imgPop {
+            0%   { opacity: 0; transform: rotate(-180deg) scale(0.5); filter: blur(6px); }
+            50%  { opacity: 1; transform: rotate(10deg) scale(1.15); filter: blur(0px); }
+            100% { opacity: 1; transform: rotate(0deg) scale(1); }
+        }
+
+        /* ====== ТЕКСТ O L V I D A R T E ====== */
+        #brandText {
+            display: flex;
+            margin-top:-30px;
+            gap: 3px;
+            font-size: 28px;
+            font-weight: 200;
+            letter-spacing: 1px;
+            opacity: 1;
+        }
+
+        #brandText span {
+            opacity: 0;
+            animation: letterShow 0.9s forwards ease-out;
+        }
+
+        @keyframes letterShow {
+            0%   { opacity: 0; transform: translateY(12px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+      
+
+        /* ====== МОБИЛКА 430px ====== */
+        @media (max-width: 430px) {
+            .logo-img {
+                width: 100px;
+                height: 100px;
+            }
+            #brandText {
+                font-size: 24px;
+            }
+        }
+
+
+        header {
+            display: flex;
+
+        }
+
+        .logoImgDarLime img{
+            width: 150px;
+            margin-top: 40px;
+            margin-left:20px;
+            height: 40px;
+        }
+
+        .logoImgDarLimeSearch img{
+            width: 25px;
+            height: 25px;
+            margin-left: 100px;
+            margin-top: 40px;
+        }
+
+        .logoImgDarLimeKor img {
+            width: 30px;
+            height: 30px;
+            margin-left: 20px;
+            margin-top: 35px;
+        }
+
+        .logoImgDarLimeElementDarLime img {
+            width: 30px;
+            height: 25px;
+            margin-left: 30px;
+            margin-top: 40px;      
+        }
+
+
+        
+        .searchDarLimeTwoElementOne {
+            position: relative;     
+            display: inline-block;
+        }
+
+        .searchDarLimeTwoElementOne img {
+            position: absolute;
+            width: 22px;
+            height: 21px; 
+            top: 65%;
+            left: 30px;  
+            transform: translateY(-60%); 
+            pointer-events: none;     
+        }
+
+
+        .searchDarLimeTwoElementOne input {
+            padding: 20px 20px 20px 50px;
+            border-radius: 20px;
+            width: 335px;
+            font-size: 16px;
+            margin-top: 20px;
+            background-size: 20px;  
+            background-image: url("searchDarLime.png");
+            margin-left: 13px;
+            background-repeat: no-repeat;
+            background-position: 15px center; /* позиция слева */
+            color: white;
+            border: none;
+            background: rgb(255,255,255, 0.1);
+        }
+
+        .searchDarLimeTwoElementTwo {
+            height: 1px;
+            margin-top: 30px;
+            width: 390px;
+            margin-left: 20px;
+            background: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ====== ПРЕЛОАДЕР ====== -->
+<div id="preloader">
+
+    <!-- ТВОЯ КАРТИНКА -->
+    <img class="logo-img" src="logoOlvid.png" alt="logo">
+
+    <!-- СЮДА ПОЯВЛЯЮТСЯ БУКВЫ -->
+    <div id="brandText"></div>
+
+</div>
+
+<!-- ====== ОСНОВНОЙ САЙТ ====== -->
+<div id="content" class="hidden">
+    <header>
+        <div class="logoImgDarLime">
+            <img src="darLime.png"/>
+        </div>
+        <div class="logoImgDarLimeSearch">
+            <img src="searchDarLime.png"/>
+        </div>
+        <div class="logoImgDarLimeKor">
+            <img src="korDarLime.png"/>
+        </div>
+         <div class="logoImgDarLimeElementDarLime">
+            <img src="elementDarLime.png"/>
+        </div>
+    </header>
+
+    <section class="hero">
+       
+       <div class="searchDarLimeTwo">
+            <div class="searchDarLimeTwoElementOne">
+                <img  src="searchDarLime.png" />
+                <input type="text" id="searchElement" placeholder="Что именно вы ищете.."></input>
+            </div>     
+            <div class="searchDarLimeTwoElementTwo"></div>
+       </div>
+
+
+
+
+
+
+       <div class="searchDarLimeTwo"></div>
+       <div class="searchDarLimeTwo"></div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+    /* ====== АНИМАЦИЯ БУКВА ЗА БУКВОЙ ====== */
+    const text = "Olvidarte";
+    const container = document.getElementById("brandText");
+
+    text.split("").forEach((letter, i) => {
+        const span = document.createElement("span");
+        span.textContent = letter;
+
+        // каждая буква появляется со своей задержкой
+        span.style.animationDelay = `${1.2 + i * 0.15}s`;
+
+        container.appendChild(span);
+    });
+
+    /* ====== УБИРАЕМ ПРЕЛОАДЕР ====== */
+    setTimeout(() => {
+        document.getElementById("preloader").classList.add("hide");
+
+        setTimeout(() => {
+            document.getElementById("preloader").style.display = "none";
+            document.getElementById("content").classList.remove("hidden");
+        }, 1000);
+
+    }, 3000);
+</script>
+
+</body>
+</html>
